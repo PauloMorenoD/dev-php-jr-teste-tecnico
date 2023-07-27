@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AcademyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    $name = "Paulo";
-    return view('login', ['name' => $name]);
-});
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/',[UserController::class, 'index']);
+Route::get('/register', [UserController::class, 'register']);
+Route::get('/home', [AcademyController::class, 'index']);
+Route::get('/academies/create', [AcademyController::class, 'create']);
+Route::post('/create', [AcademyController::class, 'store']);

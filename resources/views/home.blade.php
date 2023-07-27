@@ -1,15 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.homeHeader')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
+@section('title', 'página home')
 
-<body>
-    <h1>esta é a página da home</h1>
-</body>
+@section('content')
 
-</html>
+<main>
+    <section class="create-new-academy-section">
+        <p>Academias existentes</p>
+        <a href="/academies/create" class="add-outline">+</a>
+    </section>
+    <section class="home-academies-section">
+
+        @foreach($academies as $academie)
+
+        <div class="home-academies-div">
+            <div class="home-academies-info-icon-div">
+                    <ion-icon name="home-outline" class="icon"></ion-icon>
+                <div class=" academy-info-div">
+                    <p>{{$academie -> name}}</p>
+                    <p>{{$academie -> description}}</p>
+                </div>
+            </div>
+
+            <div class="div-edit-delete">
+                <ion-icon name="pencil-outline"></ion-icon>
+                <ion-icon name="trash-outline"></ion-icon>
+            </div>
+        </div>
+        @endforeach
+    </section>
+
+</main>
+
+@endsection
