@@ -246,3 +246,6 @@ svg {
 .not-found{
     padding: .5rem;
 }
+button{
+    cursor: pointer;
+}

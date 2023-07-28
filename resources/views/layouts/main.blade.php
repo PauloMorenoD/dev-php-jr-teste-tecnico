@@ -27,12 +27,15 @@
                 <h1>LaravelGYM</h1>
                 <div class="header-div">
                     <a href="/" class="font-color link-border">Login</a>
-                    <a href="/register" class="font-color link-border">Register</a>
+                    <a href="/user" class="font-color link-border">Register</a>
                 </div>
             </div>
         </nav>
 
     </header>
+    @if(session('msg'))
+        <p class="msg">{{ session('msg') }}</p>
+    @endif
 
     @yield('content')
 </body>

@@ -16,7 +16,9 @@ use App\Http\Controllers\AcademyController;
 
 
 Route::get('/',[UserController::class, 'index']);
-Route::get('/register', [UserController::class, 'register']);
 Route::get('/home', [AcademyController::class, 'index']);
 Route::get('/academies/create', [AcademyController::class, 'create']);
+Route::get('/user', [UserController::class, 'register']);
 Route::post('/create', [AcademyController::class, 'store']);
+Route::post('/register', [UserController::class, 'create']);
+Route::get('/auth/login',[UserController::class, 'auth']);
