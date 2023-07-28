@@ -10,11 +10,11 @@
         <form action="" class="form link-border">
             <div class="input-label-form-div">
                 <label >Email</label>
-                <input type="text" placeholder="Digite seu email" class="link-border">
+                <input type="text" placeholder="Digite seu email" class="link-border" name="email">
             </div>
             <div class="input-label-form-div">
                 <label >Senha</label>
-                <input type="text" placeholder="Digite sua senha" class="link-border">
+                <input type="text" placeholder="Digite sua senha" class="link-border" name="password">
             </div>
 
             <a href="/register" class="to-register-link">não possui conta ? cadastre-se</a>

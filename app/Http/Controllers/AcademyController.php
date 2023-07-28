@@ -9,9 +9,19 @@ use App\Models\Academy;
 class AcademyController extends Controller
 {
     public function index(){
-        $academies = Academy::all();
+        $search = request('search');
 
-        return view('home', ['academies' => $academies]);
+        if($search) {
+            $academies = Academy::where([
+                ['name', 'like', '%'.$search.'%']
+            ])->paginate(10);
+        }else {
+
+            $academies = Academy::paginate(10);
+        }
+
+
+        return view('home', ['academies' => $academies, 'search' => $search]);
     }
     public function create(){
         $academies = Academy::all();
