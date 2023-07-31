@@ -11,7 +11,7 @@
     <section class="create-new-academy-section">
         <p>Academias existentes</p>
         <a href="/academies/create" class="add-outline">
-        <ion-icon name="add-outline"></ion-icon>
+            <ion-icon name="add-outline"></ion-icon>
         </a>
     </section>
     <section class="home-academies-section">
@@ -28,20 +28,28 @@
             </div>
 
             <div class="div-edit-delete">
-                <ion-icon name="pencil-outline"></ion-icon>
-                <ion-icon name="trash-outline"></ion-icon>
+                <a href="/academies/edit/{{ $academie -> id }}">
+                    <ion-icon name="pencil-outline"></ion-icon>
+                </a>
+                <form action="/academies/{{$academie->id}}" method="POST" class="form-delete">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="button-delete">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </form>
             </div>
         </div>
         @endforeach
         @if(count($academies) >= 10)
-            <div class="pagination-div">
-                {{ $academies->links() }}
-            </div>
+        <div class="pagination-div">
+            {{ $academies->links() }}
+        </div>
         @endif
         @if(count($academies) == 0 && $search)
-            <p class="not-found">Nenhum item encontrado! <a href="/home">ver todos</a></p>
+        <p class="not-found">Nenhum item encontrado! <a href="/home">ver todos</a></p>
         @elseif(count($academies) == 0)
-            <p class="not-found">não há itens cadastrados</p>    
+        <p class="not-found">não há itens cadastrados</p>
         @endif
     </section>
 </main>

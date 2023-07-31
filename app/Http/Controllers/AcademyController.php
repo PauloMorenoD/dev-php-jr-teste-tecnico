@@ -20,14 +20,15 @@ class AcademyController extends Controller
             $academies = Academy::paginate(10);
         }
 
-
         return view('home', ['academies' => $academies, 'search' => $search]);
     }
+
     public function create(){
         $academies = Academy::all();
 
         return view('academies.create', ['academies' => $academies]);
     }
+
     public function store(Request $request){
         $academy = new Academy;
 
@@ -36,7 +37,26 @@ class AcademyController extends Controller
 
         $academy -> save();
 
-        return redirect('home') -> with('msg', 'Academia criada com sucesso');
+        return redirect('home') -> with('msg', 'Academia criada com sucesso!');
+
+    }
+
+    public function edit($id)
+    {
+        $academie = Academy::findOrFail($id);
+        return view('academies.edit', ['academie' => $academie]);
+    }
+
+    public function update(Request $request)
+    {
+        $academie = Academy::findOrFail($request -> id)->update($request ->all());
+        return redirect('home') -> with('msg', 'item editado com sucesso!');
+    }
+
+    public function destroy($id){
+        Academy::findOrFail($id)->delete();
+
+        return redirect('home') -> with('msg', 'item deletado com sucesso!');
 
     }
 }

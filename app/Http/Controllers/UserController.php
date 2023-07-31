@@ -20,6 +20,7 @@ class UserController extends Controller
     {
         return view('register');
     }
+
     public function create(Request $request)
     {
         $user = new User;

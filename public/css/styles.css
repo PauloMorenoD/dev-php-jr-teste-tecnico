@@ -168,6 +168,7 @@
 .div-edit-delete {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: .5rem;
 }
 
@@ -239,8 +240,8 @@
 }
 
 svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
 }
 
 .not-found{
@@ -249,3 +250,14 @@ svg {
 button{
     cursor: pointer;
 }
+
+.button-delete{
+    border: none;
+}
+
+ion-icon{
+    width: 1.2rem;
+    height: 1.2rem;
+
+}
+

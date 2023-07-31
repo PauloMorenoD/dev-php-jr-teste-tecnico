@@ -19,6 +19,11 @@ Route::get('/',[UserController::class, 'index']);
 Route::get('/home', [AcademyController::class, 'index']);
 Route::get('/academies/create', [AcademyController::class, 'create']);
 Route::get('/user', [UserController::class, 'register']);
+Route::get('/academies/edit/{id}', [AcademyController::class, 'edit']);
+
+
 Route::post('/create', [AcademyController::class, 'store']);
 Route::post('/register', [UserController::class, 'create']);
 Route::get('/auth/login',[UserController::class, 'auth']);
+Route::put('/academies/update/{id}',[AcademyController::class, 'update']);
+Route::delete('/academies/{id}', [AcademyController::class, 'destroy']);
